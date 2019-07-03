@@ -2,7 +2,7 @@
 
 SELECT fname, lname, ssn, salary
 FROM employee
-WHERE sex = "M" AND salary > 30000
+WHERE sex = "M" AND salary > 30000;
 
 --Question 2
 
@@ -21,7 +21,7 @@ WHERE d.relationship <> 'SPOUSE';
 
 SELECT e.Fname, m.lname
 FROM Employee e JOIN (SELECT lname, SSN FROM Department d JOIN Employee m ON (d.MGRSSN = m.SSN) ) m
-WHERE m.ssn = e.superSSN
+WHERE m.ssn = e.superSSN;
 
 --Question 5
 
@@ -32,15 +32,14 @@ FROM
  JOIN
  (SELECT pno FROM employee z JOIN Works_On b ON (z.ssn = b.essn) 
  WHERE z.fname = 'Alicia') c
- ON (p.pno = c.pno) JOIN Project v ON (p.pno = v.pnumber)
+ ON (p.pno = c.pno) JOIN Project v ON (p.pno = v.pnumber);
 
 --Question 6
 
 SELECT e.ssn, e.lname, COUNT(w.pno) as "NUM"
 FROM employee e JOIN works_on w ON (e.ssn = w.essn)
 group by e.ssn
-HAVING COUNT(w.pno) = 2
-;
+HAVING COUNT(w.pno) = 2;
 
 --Question 7
 
